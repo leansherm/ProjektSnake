@@ -28,12 +28,32 @@ namespace SnakeCoding
 
         private int score = 0; // счет
         private Label lblScore;
+   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        public void Constructor(int _width, int _height, int _boxSize)
+        {
+            width = _width;
+            height = _height;
+            boxSize = _boxSize;
+        }
+
 
         public Form1()
         {
             InitializeComponent();
             //this.Width = width;
             //this.Height = height;
+
+
+            gameTimer.Tick += new EventHandler(UpdateScreen);
+            gameTimer.Interval = 80; //скорость
+            gameTimer.Start(); //запуск таймера
+
+           StartGame();
+        }
+
+        private void StartGame()
+        {
             dirX = 1;
             dirY = 0;
 
@@ -43,10 +63,11 @@ namespace SnakeCoding
                 Size = new Size(boxSize, boxSize)
             };
 
+            
             snakeHead[0] = new PictureBox
             {
                 Location = new Point(201, 201),
-                Size = new Size(boxSize-1, boxSize-1),
+                Size = new Size(boxSize - 1, boxSize - 1),
                 BackColor = Color.Black
             };
             this.Controls.Add(snakeHead[0]);
@@ -58,15 +79,26 @@ namespace SnakeCoding
             };
             this.Controls.Add(lblScore);
 
-            gameTimer.Tick += new EventHandler(UpdateScreen);
-            gameTimer.Interval = 80; //скорость
-            gameTimer.Start(); //запуск таймера
 
-
-            this.KeyDown += new KeyEventHandler(Input); // управление (взаимосвязаны)
+            this.KeyDown += new KeyEventHandler(InputControll); // управление (взаимосвязаны)
 
             pbMap_Paint();
             Fruit_Generate();
+            //snakeHead[0].Invalidate();
+            lblGameOver.Visible = false;
+            pbGameOver.Visible = false;
+            button1.Visible = false;
+        }
+
+        // обновление отображения игры
+        private void UpdateScreen(Object objectOne, EventArgs eventsArgs)
+        {
+            MoveSnake();
+            Eat();
+            CheckBorders();
+
+            
+
         }
 
         //рисовка карты
@@ -98,7 +130,7 @@ namespace SnakeCoding
         private void Fruit_Generate()
         {
             Random random = new Random();
-            randomX = random.Next(0, width - boxSize);
+            randomX = random.Next(0, height - boxSize);
             int randomResultX = randomX % boxSize;
             randomX -= randomResultX;
 
@@ -108,18 +140,11 @@ namespace SnakeCoding
 
             randomX++;
             randomY++;
-
+            
             fruit.Location = new Point(randomX, randomY);
             this.Controls.Add(fruit);
         }
 
-        // обновление отображения игры
-        private void UpdateScreen(Object objectOne, EventArgs eventsArgs)
-        {
-            MoveSnake();
-            Eat();
-            //pbSnake.Location = new Point(pbSnake.Location.X + dirX * boxSize, pbSnake.Location.Y + dirY * boxSize);
-        }
 
         // движение всей змеи
         private void MoveSnake()
@@ -130,7 +155,23 @@ namespace SnakeCoding
             }
             snakeHead[0].Location = new Point(snakeHead[0].Location.X + dirX * (boxSize), snakeHead[0].Location.Y + dirY * (boxSize));
 
+            for (int d = 1; d < score; d++)
+            {
+                if (snakeHead[0].Location == snakeHead[d].Location)
+                {
+                    lblGameOver.Visible = true;
+                    pbGameOver.Visible = true;
+                    button1.Visible = true;
+
+                    /*if (Input.KeyPressed(Keys.Enter))
+                    {
+                        StartGame();
+                    }*/
+                }
+            }
         }
+
+
 
 
         private void Eat()
@@ -151,9 +192,44 @@ namespace SnakeCoding
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            StartGame();
+            //Invalidate();
+        }
+
+        private void CheckBorders()
+        {
+            if (snakeHead[0].Location.X < 0)
+            {
+                lblGameOver.Visible = true;
+                pbGameOver.Visible = true;
+                button1.Visible = true;
+            }
+            if (snakeHead[0].Location.X > height)
+            {
+                lblGameOver.Visible = true;
+                pbGameOver.Visible = true;
+                button1.Visible = true;
+            }
+            if (snakeHead[0].Location.Y < 0)
+            {
+                lblGameOver.Visible = true;
+                pbGameOver.Visible = true;
+                button1.Visible = true;
+            }
+            if (snakeHead[0].Location.Y > height)
+            {
+                lblGameOver.Visible = true;
+                pbGameOver.Visible = true;
+                button1.Visible = true;
+            }
+        }
+
+
 
         // управление 
-        private void Input(object sender, KeyEventArgs e)
+        private void InputControll(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode.ToString())
             {
@@ -179,7 +255,6 @@ namespace SnakeCoding
             
         }
         
-
 
 
 
