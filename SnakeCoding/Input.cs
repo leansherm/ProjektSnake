@@ -8,7 +8,7 @@ using System.Collections; // для - 'Hastable'
 
 namespace SnakeCoding
 {
-    class Input
+    public class Input
     {
 
         // загрузить список доступных кнопок клавиатуры
@@ -32,3 +32,4 @@ namespace SnakeCoding
 
     }
 }
+
