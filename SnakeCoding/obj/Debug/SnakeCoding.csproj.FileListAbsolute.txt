@@ -18,3 +18,13 @@ D:\mycode\C#\ProjektSnake\SnakeCoding\obj\Debug\SnakeCoding.csproj.GenerateResou
 D:\mycode\C#\ProjektSnake\SnakeCoding\obj\Debug\SnakeCoding.csproj.CoreCompileInputs.cache
 D:\mycode\C#\ProjektSnake\SnakeCoding\obj\Debug\SnakeCoding.exe
 D:\mycode\C#\ProjektSnake\SnakeCoding\obj\Debug\SnakeCoding.pdb
+D:\mycode\C#\ProjektSnake\ProjektSnake\SnakeCoding\bin\Debug\SnakeCoding.exe.config
+D:\mycode\C#\ProjektSnake\ProjektSnake\SnakeCoding\bin\Debug\SnakeCoding.exe
+D:\mycode\C#\ProjektSnake\ProjektSnake\SnakeCoding\bin\Debug\SnakeCoding.pdb
+D:\mycode\C#\ProjektSnake\ProjektSnake\SnakeCoding\obj\Debug\SnakeCoding.csprojAssemblyReference.cache
+D:\mycode\C#\ProjektSnake\ProjektSnake\SnakeCoding\obj\Debug\SnakeCoding.Form1.resources
+D:\mycode\C#\ProjektSnake\ProjektSnake\SnakeCoding\obj\Debug\SnakeCoding.Properties.Resources.resources
+D:\mycode\C#\ProjektSnake\ProjektSnake\SnakeCoding\obj\Debug\SnakeCoding.csproj.GenerateResource.cache
+D:\mycode\C#\ProjektSnake\ProjektSnake\SnakeCoding\obj\Debug\SnakeCoding.csproj.CoreCompileInputs.cache
+D:\mycode\C#\ProjektSnake\ProjektSnake\SnakeCoding\obj\Debug\SnakeCoding.exe
+D:\mycode\C#\ProjektSnake\ProjektSnake\SnakeCoding\obj\Debug\SnakeCoding.pdb
