@@ -119,10 +119,10 @@
 
         #endregion
         private System.Windows.Forms.Timer gameTimer;
-        private System.Windows.Forms.Label lblGameOver;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblScore;
+        public System.Windows.Forms.Label lblGameOver;
         private System.Windows.Forms.PictureBox pbCanvas;
     }
 }

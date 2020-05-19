@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace SnakeCoding
 {
-    class Settings
+    public class Settings
     {
         public static int width { get; set; }
         public static int height { get; set; }
         public static int boxSize { get; set; }
         public static int score { get; set; }
         public static bool GameOver { get; set; }
+        public static int speed { get; set; }
 
 
 
@@ -23,6 +24,7 @@ namespace SnakeCoding
             boxSize = 25;
             score = 0;
             GameOver = false;
+            speed = 80;
 
         }
 
