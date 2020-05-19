@@ -11,17 +11,14 @@ namespace SnakeUnitTest
         [TestMethod]
         public void TestMethod2()
         {
-
-            /* Следующий тест должен подтвердить, что когда игра запускается, 
-               значение gameOver bool не соответствует действительности.
-            Następny test powinien potwierdzić, że po uruchomieniu gry wartość gameOver bool nie jest prawdziwa.
-            */
-
+            //Następny test powinien potwierdzić, że po uruchomieniu gry wartość GameOver bool nie jest prawdziwa.
             // 1
             Settings.GameOver = true;
-            new Form1();
-            new Game();
             // 2
+            Form1 form = new Form1();
+            new Form1();
+            form.StartGame();
+            // 3
             Assert.IsFalse(Settings.GameOver);
         }
     }

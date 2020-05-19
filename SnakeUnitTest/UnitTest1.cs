@@ -15,10 +15,11 @@ namespace SnakeUnitTest
             //1
             int result = 0;
             //2
+            Form1 form = new Form1();
             new Form1();
-            new Game();
+            form.StartGame();
             //3
-            Assert.AreEqual(Settings.score, result);
+            Assert.AreEqual(Settings.Score, result);
 
         }
     }

@@ -8,24 +8,23 @@ namespace SnakeCoding
 {
     public class Settings
     {
-        public static int width { get; set; }
-        public static int height { get; set; }
-        public static int boxSize { get; set; }
-        public static int score { get; set; }
+        public static int Width { get; set; }
+        public static int Height { get; set; }
+        public static int BoxSize { get; set; }
+        public static int Score { get; set; }
         public static bool GameOver { get; set; }
-        public static int speed { get; set; }
+        public static int Speed { get; set; }
 
 
 
         public Settings()
         {
-            width = 600;
-            height = 600;
-            boxSize = 25;
-            score = 0;
+            Width = 600;
+            Height = 600;
+            BoxSize = 25;
+            Score = 0;
             GameOver = false;
-            speed = 80;
-
+            Speed = 80;
         }
 
 

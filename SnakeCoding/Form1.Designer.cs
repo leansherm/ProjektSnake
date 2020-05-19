@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.lblGameOver = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BttnRestart = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
             this.pbCanvas = new System.Windows.Forms.PictureBox();
@@ -50,20 +50,20 @@
             this.lblGameOver.TabIndex = 2;
             this.lblGameOver.Text = "GAME OVER\r\n  GAME OVER\r\n      GAME OVER";
             // 
-            // button1
+            // BttnRestart
             // 
-            this.button1.BackColor = System.Drawing.Color.SpringGreen;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("NSimSun", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(55, 528);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 27);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "R E S T A R T";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BttnRestart.BackColor = System.Drawing.Color.SpringGreen;
+            this.BttnRestart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BttnRestart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BttnRestart.Font = new System.Drawing.Font("NSimSun", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BttnRestart.ForeColor = System.Drawing.Color.Black;
+            this.BttnRestart.Location = new System.Drawing.Point(55, 528);
+            this.BttnRestart.Name = "BttnRestart";
+            this.BttnRestart.Size = new System.Drawing.Size(165, 27);
+            this.BttnRestart.TabIndex = 4;
+            this.BttnRestart.Text = "R E S T A R T";
+            this.BttnRestart.UseVisualStyleBackColor = false;
+            this.BttnRestart.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label1
             // 
@@ -105,7 +105,7 @@
             this.ClientSize = new System.Drawing.Size(584, 561);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BttnRestart);
             this.Controls.Add(this.lblGameOver);
             this.Controls.Add(this.pbCanvas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -119,7 +119,7 @@
 
         #endregion
         private System.Windows.Forms.Timer gameTimer;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BttnRestart;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblScore;
         public System.Windows.Forms.Label lblGameOver;
