@@ -27,7 +27,7 @@ namespace SnakeCoding
             InitializeComponent();
             new Settings();
 
-            gameTimer.Tick += new EventHandler(UpdateScreen);
+            gameTimer.Tick += new EventHandler(UpdateScreen); // delegat
             gameTimer.Interval = Settings.Speed; //prędkość
             gameTimer.Start(); //uruchomienie licznika
 
@@ -36,7 +36,8 @@ namespace SnakeCoding
 
             StartGame();
         }
-        
+
+        // rozpoczęcie gry
         public void StartGame()
         {
             new Settings();
@@ -53,9 +54,9 @@ namespace SnakeCoding
                 Size = new Size(Settings.BoxSize - 1, Settings.BoxSize - 1),
                 BackColor = Color.Black
             };
-            this.Controls.Add(snakeHead[0]);
+            Controls.Add(snakeHead[0]);
 
-            this.KeyDown += new KeyEventHandler(InputControll); // zarządzanie
+            KeyDown += new KeyEventHandler(InputControll); // zarządzanie
 
             pbFruit_Generate();
             lblGameOver.Visible = false;
@@ -71,14 +72,13 @@ namespace SnakeCoding
             pbCanvas.SendToBack();
         }
 
-
-
         // losowe pojawienie się jedzenia na mapie
         private void pbFruit_Generate()
         {
             // definiowanie granic canvasa
             int maxYPos = pbCanvas.Size.Height;
 
+            // losowanie
             Random random = new Random();
             RandomX = random.Next(0, maxYPos - Settings.BoxSize);
             int randomResultX = RandomX % Settings.BoxSize;
@@ -92,7 +92,7 @@ namespace SnakeCoding
             RandomY++;
             
             pbFruit.Location = new Point(RandomX, RandomY);
-            this.Controls.Add(pbFruit);
+            Controls.Add(pbFruit);
         }
 
         // ruch całego węża
@@ -104,19 +104,20 @@ namespace SnakeCoding
             }
             snakeHead[0].Location = new Point(snakeHead[0].Location.X + DirX * (Settings.BoxSize), snakeHead[0].Location.Y + DirY * (Settings.BoxSize));
 
-            // eatself
+            // zderzenie głowy z ogonem = usunienie ogonów + usunienie punktów
             for (int n = 1; n < Settings.Score; n++)
             {
                 if (snakeHead[0].Location == snakeHead[n].Location)
                 {
                     for (int k = n; k <= Settings.Score; k++)
-                        this.Controls.Remove(snakeHead[k]); // usunienie ogonów
+                        Controls.Remove(snakeHead[k]);
                     Settings.Score = Settings.Score - (Settings.Score - n + 1);
-                    lblScore.Text = " " + Settings.Score;
+                    lblScore.Text = " " + Settings.Score + 0;
                 }
             }
         }
 
+        // jedzenie owoców = dodanie punktów + dodanie ogonów węża
         private void Eat()
         {
             if(snakeHead[0].Location.X == RandomX && snakeHead[0].Location.Y == RandomY)
@@ -129,29 +130,32 @@ namespace SnakeCoding
                     Size = new Size(Settings.BoxSize -1, Settings.BoxSize -1),
                     BackColor = Color.Green
                 };
-                this.Controls.Add(snakeHead[Settings.Score]);
+                Controls.Add(snakeHead[Settings.Score]);
 
                 pbFruit_Generate();
             }
         }
 
+        // wznowienie gry po naciśnięciu przycisku
         private void Button1_Click(object sender, EventArgs e)
         {
             StartGame();
         }
 
+        // zakończenie gry kiedy wąż napotyka granicę
         private void CheckBorders()
         {
             // definiowanie granic canvasa
             int maxYPos = pbCanvas.Size.Height;
             int maxXPos = pbCanvas.Size.Width;
 
-            if(snakeHead[0].Location.X < 0 || snakeHead[0].Location.Y < 0 || snakeHead[0].Location.X >= maxXPos || snakeHead[0].Location.Y >= maxYPos)
+            // wyświetlanie wiadomości, że gra jest skończona
+            if (snakeHead[0].Location.X < 0 || snakeHead[0].Location.Y < 0 || snakeHead[0].Location.X >= maxXPos || snakeHead[0].Location.Y >= maxYPos)
             {
                 lblGameOver.Visible = true;
                 BttnRestart.Enabled = true;
                 Settings.GameOver = true;
-                this.Controls.Remove(pbFruit);
+                Controls.Remove(pbFruit);
             }
         }
 
