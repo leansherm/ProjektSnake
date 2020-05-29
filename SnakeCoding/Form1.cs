@@ -13,7 +13,7 @@ namespace SnakeCoding
     public partial class Form1 : Form
     {
         // sterowanie
-        private static int DirX, DirY; 
+        private int DirX, DirY; 
         // jedzenie
         private PictureBox pbFruit;
         private int RandomX, RandomY;
@@ -37,7 +37,7 @@ namespace SnakeCoding
             StartGame();
         }
 
-        // rozpoczęcie gry
+        /// rozpoczęcie gry
         public void StartGame()
         {
             new Settings();
@@ -63,7 +63,7 @@ namespace SnakeCoding
             BttnRestart.Enabled = false;
         }
 
-        // aktualizacja wyświetlania gry
+        /// aktualizacja wyświetlania gry
         private void UpdateScreen(Object objectOne, EventArgs eventsArgs)
         {
             MoveSnake();
@@ -72,7 +72,7 @@ namespace SnakeCoding
             pbCanvas.SendToBack();
         }
 
-        // losowe pojawienie się jedzenia na mapie
+        /// losowe pojawienie się jedzenia na mapie
         private void pbFruit_Generate()
         {
             // definiowanie granic canvasa
@@ -95,7 +95,7 @@ namespace SnakeCoding
             Controls.Add(pbFruit);
         }
 
-        // ruch całego węża
+        /// ruch całego węża + zderzenie
         private void MoveSnake()
         {
             for (int i = Settings.Score; i >= 1; i--)
@@ -117,7 +117,7 @@ namespace SnakeCoding
             }
         }
 
-        // jedzenie owoców = dodanie punktów + dodanie ogonów węża
+        /// jedzenie owoców = dodanie punktów + dodanie ogonów węża
         private void Eat()
         {
             if(snakeHead[0].Location.X == RandomX && snakeHead[0].Location.Y == RandomY)
@@ -136,13 +136,13 @@ namespace SnakeCoding
             }
         }
 
-        // wznowienie gry po naciśnięciu przycisku
+        /// wznowienie gry po naciśnięciu przycisku
         private void Button1_Click(object sender, EventArgs e)
         {
             StartGame();
         }
 
-        // zakończenie gry kiedy wąż napotyka granicę
+        /// zakończenie gry kiedy wąż napotyka granicę
         private void CheckBorders()
         {
             // definiowanie granic canvasa
@@ -159,8 +159,8 @@ namespace SnakeCoding
             }
         }
 
-        // sterowanie
-        private static void InputControll(object sender, KeyEventArgs e)
+        /// sterowanie
+        private void InputControll(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode.ToString())
             {
