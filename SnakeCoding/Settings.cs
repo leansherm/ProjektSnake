@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace SnakeCoding
 {
+    /// <summary>
     /// regulowanie
+    /// </summary>
     public class Settings
     {
         public static int Width { get; set; }
@@ -17,7 +19,9 @@ namespace SnakeCoding
         public static int Speed { get; set; }
 
 
+        /// <summary>
         /// regulowanie
+        /// </summary>
         public Settings()
         {
             Width = 600;

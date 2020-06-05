@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace SnakeCoding
 {
+    /// <summary>
+    /// Reprezentuje okno lub okno dialogowe, które tworzy interfejs użytkownika aplikacji.
+    /// </summary>
     public partial class Form1 : Form
     {
         // sterowanie
@@ -19,17 +22,18 @@ namespace SnakeCoding
         private int RandomX, RandomY;
         // głowa węża
         private PictureBox[] snakeHead = new PictureBox[400];
-        
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+        /// <summary>
+        /// Inicjuje nowe wystąpienie klasy Form.
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
             new Settings();
 
-            gameTimer.Tick += new EventHandler(UpdateScreen); // delegat
-            gameTimer.Interval = Settings.Speed; //prędkość
-            gameTimer.Start(); //uruchomienie licznika
+            gameTimer.Tick += new EventHandler(UpdateScreen);
+            gameTimer.Interval = Settings.Speed;
+            gameTimer.Start();
 
             DirX = 1;
             DirY = 0;
@@ -63,7 +67,11 @@ namespace SnakeCoding
             BttnRestart.Enabled = false;
         }
 
+        /// <summary>
         /// aktualizacja wyświetlania gry
+        /// </summary>
+        /// <param name="objectOne">Obsługuje wszystkie klasy w hierarchii klas .NET i udostępnia usługi niskiego poziomu klasom pochodnym</param>
+        /// <param name="eventsArgs">Reprezentuje klasę bazową dla klas, które zawierają dane zdarzenia i dostarcza wartość do użycia dla zdarzeń</param>
         private void UpdateScreen(Object objectOne, EventArgs eventsArgs)
         {
             MoveSnake();
@@ -104,7 +112,7 @@ namespace SnakeCoding
             }
             snakeHead[0].Location = new Point(snakeHead[0].Location.X + DirX * (Settings.BoxSize), snakeHead[0].Location.Y + DirY * (Settings.BoxSize));
 
-            // zderzenie głowy z ogonem = usunienie ogonów + usunienie punktów
+            /* zderzenie głowy z ogonem = usunienie ogonów + usunienie punktów */
             for (int n = 1; n < Settings.Score; n++)
             {
                 if (snakeHead[0].Location == snakeHead[n].Location)
@@ -136,7 +144,11 @@ namespace SnakeCoding
             }
         }
 
+        /// <summary>
         /// wznowienie gry po naciśnięciu przycisku
+        /// </summary>
+        /// <param name="sender">Obsługuje wszystkie klasy w hierarchii klas .NET i udostępnia usługi niskiego poziomu klasom pochodnym</param>
+        /// <param name="e">Reprezentuje klasę bazową dla klas, które zawierają dane zdarzenia i dostarcza wartość do użycia dla zdarzeń</param>
         private void Button1_Click(object sender, EventArgs e)
         {
             StartGame();
@@ -159,7 +171,11 @@ namespace SnakeCoding
             }
         }
 
+        /// <summary>
         /// sterowanie
+        /// </summary>
+        /// <param name="sender">Obsługuje wszystkie klasy w hierarchii klas .NET i udostępnia usługi niskiego poziomu klasom pochodnym</param>
+        /// <param name="e">Zawiera dane dla zdarzenia</param>
         private void InputControll(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode.ToString())
@@ -180,7 +196,6 @@ namespace SnakeCoding
                     DirY = 1;
                     DirX = 0;
                     break;
-
             }
         }
     }
