@@ -16,7 +16,7 @@ namespace SnakeUnitTest
             int result = 0;
             //2
             Form1 form = new Form1();
-            new Form1();
+
             form.StartGame();
             //3
             Assert.AreEqual(Settings.Score, result);
