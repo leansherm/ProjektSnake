@@ -16,7 +16,6 @@ namespace SnakeUnitTest
             Settings.GameOver = true;
             // 2
             Form1 form = new Form1();
-            new Form1();
             form.StartGame();
             // 3
             Assert.IsFalse(Settings.GameOver);
